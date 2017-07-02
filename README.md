@@ -16,7 +16,7 @@ The commands above assume your are using Rasbian Jessie on a Raspberry Pi. Insta
     
 PIP for installing Python packages:
 
-sudo apt-get install python3-pip
+    sudo apt-get install python3-pip
 
 [Tornado Web server](http://www.tornadoweb.org/)
 
