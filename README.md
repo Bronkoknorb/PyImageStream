@@ -27,7 +27,7 @@ Pygame (used for capturing images from a Webcam)
 
 ### Connect your Webcam
 
-The Webcam has to compatible with Video4Linux2 and should appear as /dev/video0 in the filesystem.
+The Webcam has to be compatible with Video4Linux2 and should appear as /dev/video0 in the filesystem.
 Most USB Webcams support the UVC standard and should work just fine.
 The Raspberry Pi Camera Module can be made available as a V4L2 device by loading a kernel module:
 
