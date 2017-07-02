@@ -1,8 +1,7 @@
 PyImageStream - Python WebSocket Image Stream
 =============================================
 
-Streams images (JPEG) from a WebCam (USB camera or Raspberry Pi Camera Module) via a WebSocket to a Browser to show
-video.
+Server which streams images (JPEG) from a WebCam (USB camera or Raspberry Pi Camera Module) via a WebSocket. Also includes a simple JavaScript client to show the video in a Web Browser.
 
 Prerequisites
 -------------
