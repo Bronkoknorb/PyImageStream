@@ -7,28 +7,28 @@ video.
 Prerequisites
 -------------
 
-### Install the following dependencies:
+### Install dependencies
 
-Python 3:
+Python 3
 
     sudo apt install python3
 
-Tornado Web server:
+Tornado Web server
 
     sudo pip3 install tornado
 
-Python Imaging Library:
+Python Imaging Library
 
     sudo apt install python3-pil
 
-Pygame (used for capturing images from a Webcam):
+Pygame (used for capturing images from a Webcam)
 
     sudo apt install python3-pygame
 
-### Connect your WebCam
+### Connect your Webcam
 
-The WebCam has to compatible with Video4Linux2 and should appear as /dev/video0 in the filesystem.
-Most USB webcams support the UVC standard and should work just fine.
+The Webcam has to compatible with Video4Linux2 and should appear as /dev/video0 in the filesystem.
+Most USB Webcams support the UVC standard and should work just fine.
 The Raspberry Pi Camera Module can be made available as a V4L2 device by loading a kernel module:
 
     sudo modprobe bcm2835-v4l2
@@ -45,5 +45,5 @@ Start using
 
     python3 main.py
 
-The stream can then be watched on: http://YOUR_HOST:8888/ (where YOUR_HOST is your host name or IP address, or localhost
-on the same PC).
+The stream can then be watched on: http://YOUR_HOST:8888/ (where YOUR_HOST is your host name or IP address or localhost
+on the same machine).
