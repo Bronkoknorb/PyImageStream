@@ -41,7 +41,7 @@ Clone the repository to some directory and change to that directory:
     git clone https://github.com/Bronkoknorb/PyImageWebSocket.git
     cd PyImageStream
 
-Start using
+Start with
 
     python3 main.py
 
