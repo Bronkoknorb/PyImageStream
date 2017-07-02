@@ -8,11 +8,15 @@ Prerequisites
 
 ### Install dependencies
 
-This assumes your are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be slightly different on other Linux distributions. For that please refer to the installation instructions of each of these projects. This has not been tested on other operating system, like Windows, but will probably work there too.
+The commands above assume your are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be slightly different on other Linux distributions. For that please refer to the installation instructions of each of these packages. This project has not yet been tested on other operating system, like Windows, but should probably work there too.
 
 [Python 3](https://www.python.org/)
 
     sudo apt install python3
+    
+PIP for installing Python packages:
+
+sudo apt-get install python3-pip
 
 [Tornado Web server](http://www.tornadoweb.org/)
 
@@ -34,7 +38,7 @@ The [Raspberry Pi Camera Module](https://www.raspberrypi.org/documentation/usage
 
     sudo modprobe bcm2835-v4l2
     
-To permanantely load this module (so that it also works after a reboot) add `bcm2835-v4l2` to `/etc/modules`.
+To permanently load this module (so that it also works after a reboot) add the line `bcm2835-v4l2` to `/etc/modules`.
 
 Installation
 ------------
