@@ -8,19 +8,21 @@ Prerequisites
 
 ### Install dependencies
 
-Python 3
+This assumes your are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be slightly different on other Linux distributions. For that please refer to the installation instructions of each of these projects. This has not been tested on other operating system, like Windows, but will probably work there too.
+
+[Python 3](https://www.python.org/)
 
     sudo apt install python3
 
-Tornado Web server
+[Tornado Web server](http://www.tornadoweb.org/)
 
     sudo pip3 install tornado
 
-Python Imaging Library
+[Python Imaging Library](https://pypi.python.org/pypi/PIL)
 
     sudo apt install python3-pil
 
-Pygame (used for capturing images from a Webcam)
+[Pygame](https://www.pygame.org/) (used for capturing images from a Webcam)
 
     sudo apt install python3-pygame
 
@@ -28,9 +30,11 @@ Pygame (used for capturing images from a Webcam)
 
 The Webcam has to be compatible with Video4Linux2 and should appear as /dev/video0 in the filesystem.
 Most USB Webcams support the UVC standard and should work just fine.
-The Raspberry Pi Camera Module can be made available as a V4L2 device by loading a kernel module:
+The [Raspberry Pi Camera Module](https://www.raspberrypi.org/documentation/usage/camera/) can be made available as a V4L2 device by loading a kernel module:
 
     sudo modprobe bcm2835-v4l2
+    
+To permanantely load this module (so that it also works after a reboot) add `bcm2835-v4l2` to `/etc/modules`.
 
 Installation
 ------------
