@@ -72,5 +72,5 @@ See [LICENSE](LICENSE).
 Author
 ------
 
-Hermann Czedik-Eysenberg
+Hermann Czedik-Eysenberg  
 dev@hermann.czedik.net
