@@ -62,7 +62,7 @@ If you are using this project, I'd be happy to hear! Please Star the repository 
 
 If you have problems or questions then please open an [Issue on github](https://github.com/Bronkoknorb/PyImageStream/issues).
 
-Feel free to fork the repository and create pull requests for improvements and additional scripts.
+Feel free to fork the repository and create pull requests for improvements and new features.
 
 License
 -------
