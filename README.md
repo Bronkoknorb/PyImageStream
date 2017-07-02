@@ -58,7 +58,7 @@ on the same machine).
 Happy?
 ------
 
-If you are using this project, I'd be happy to hear! Please Star the repository (button in the top right) or drop me a mail!
+If you are using this project, I'd be happy to hear! Please Star the repository (button in the top right) or drop me a mail (dev@hermann.czedik.net)!
 
 If you have problems or questions then please open an [Issue on github](https://github.com/Bronkoknorb/PyImageStream/issues).
 
