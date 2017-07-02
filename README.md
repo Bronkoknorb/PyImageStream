@@ -47,3 +47,23 @@ Start with
 
 The stream can then be watched on: http://YOUR_HOST:8888/ (where YOUR_HOST is your host name or IP address or localhost
 on the same machine).
+
+Happy?
+------
+
+If you are using this project, I'd be happy to hear! Please Star the repository (button in the top right) or drop me a mail!
+
+If you have problems or questions then please open an [Issue on github](https://github.com/Bronkoknorb/PyImageStream/issues).
+
+Feel free to fork the repository and create pull requests for improvements and additional scripts.
+
+License
+-------
+
+See [LICENSE](LICENSE).
+
+Author
+------
+
+Hermann Czedik-Eysenberg
+dev@hermann.czedik.net
