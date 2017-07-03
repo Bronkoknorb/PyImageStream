@@ -77,7 +77,7 @@ This is the relevant part from a nginx configuration file that I use to proxy my
 
 It will make the camera available under http://YOUR_HOST/cam1/
 
-To setup authentication and HTTPS please refer to the nginx documentation.
+To setup authentication and HTTPS please refer to the nginx documentation. If you have a domain name or are using a Dynamic DNS service, then you can get free HTTPS certificates from [letsencrypt](https://letsencrypt.org/).
 
 Alternatively you could also configure authentication and HTTPS for the internally used Python Tornado Web server.
 I haven't tried that yet, but the Tornado Web server documentation should help with that.
