@@ -3,7 +3,7 @@ PyImageStream - Python WebSocket Image Stream
 
 Server which streams images (JPEG) from a WebCam (USB camera or Raspberry Pi Camera Module) via a WebSocket. Also includes a simple JavaScript client to show the video in a Web Browser.
 
-I've implemented this for streaming live images of my Aquarium from a Raspberry Pi 3 to my smartphone (or tablet or PC) when I'm on vacation to check the health of the fish. For this I want to see high resolution images (e.g. the full 1920x1080 pixels the Raspberry Pi Camera can provide), even if the connection speed is slow. It is fine to see only a few images per second, if I'm on a slow network, but if it is fast I want to see a more smooth video.
+I've implemented this for streaming live images of my Aquarium from a Raspberry Pi 3 to my smartphone (or tablet or PC) when I'm on vacation to check on my fish :tropical_fish:. For this I want to see high resolution images (e.g. the full 1920x1080 pixels the Raspberry Pi Camera can provide), even if the connection speed is slow. It is fine to see only a few images per second, if I'm on a slow network, but if it is fast I want to see a more smooth video.
 
 For my use case this implementation has several advantages over other existing Web video streaming solutions:
 * Supports high resolution images (video) even if the connection speed is slow by automatically adapting the framerate.
