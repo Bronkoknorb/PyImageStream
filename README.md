@@ -67,7 +67,7 @@ Installation
 
 Clone the repository to some directory and change to that directory:
 
-    git clone https://github.com/Bronkoknorb/PyImageWebSocket.git
+    git clone https://github.com/Bronkoknorb/PyImageStream.git
     cd PyImageStream
 
 Start with
