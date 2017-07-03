@@ -12,7 +12,13 @@ For my use case this implementation has several advantages over other existing W
 * Easier to set up and configure and better supported (at the time of this writing) than other adaptive streaming methods like HLS, MPEG-DASH, WebRTC.
 * Works with the Raspberry Pi Camera Module and with almost any USB camera (supported by Linux / pygame). (In comparison too the otherwise very nice [RPi-Cam-Web-Interface](http://elinux.org/RPi-Cam-Web-Interface), which unfortunately only works with the Raspberry Pi Camera.)
 * Automatically turns off the camera if no client is connected (to safe energy, camera lifetime and CPU usage).
+* Doesn't write images / video to disk (to not shorten the lifetime of the SD card) but keeps them 
 * Fully open source (In comparison too [UV4L](https://www.linux-projects.org/uv4l/), which seems to be closed-source - yuck!)
+
+Disadvantages:
+
+* For high resolution it will never achieve a high framerate, because it's not using an efficient Video codec (like H.264)
+* Doesn't work well with many clients connecting simultanously, because it will capture new images and send them to each client separately (i.e. the framerate will become slower). This isn't a problem for my use case as I will be the only one connecting to my aquarium video.
 
 Prerequisites
 -------------
