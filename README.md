@@ -82,7 +82,7 @@ Configuration
  - select the Web server port
  - select the delay that is used to stop the camera after all clients have disconnected
  
-In `static/client.js` you can configure the maximum framerate that client will try to load and display (default: 24 frames per second).
+In `static/client.js` you can configure the maximum framerate that the client will try to load and display (default: 24 frames per second).
 
 Security
 --------
