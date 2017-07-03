@@ -78,9 +78,11 @@ Configuration
 `main.py` includes some constants that can be changed to:
  - select the Webcam (if multiple are connected)
  - select the resolution of images (lower resolution will increase the throughput)
- - select the JPEG quality (lower quality will will increase the throughput)
+ - select the JPEG quality (lower quality will increase the throughput)
  - select the Web server port
  - select the delay that is used to stop the camera after all clients have disconnected
+ 
+In `static/client.js` you can configure the maximum framerate that client will try to load and display (default: 24 frames per second).
 
 Security
 --------
