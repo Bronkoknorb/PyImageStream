@@ -76,6 +76,10 @@ camera = Camera()
 class ImageWebSocket(tornado.websocket.WebSocketHandler):
     clients = set()
 
+    def check_origin(self, origin):
+        # Allow access from every origin
+        return True
+
     def open(self):
         ImageWebSocket.clients.add(self)
         print("WebSocket opened from: " + self.request.remote_ip)

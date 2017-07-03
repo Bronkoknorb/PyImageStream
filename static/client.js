@@ -10,7 +10,18 @@ var request_time = 0;
 var time_smoothing = 0.9; // larger=more smoothing
 var request_time_smoothing = 0.2; // larger=more smoothing
 var target_time = 1000 / target_fps;
-var ws = new WebSocket("ws://" + location.host + "/websocket");
+
+var wsProtocol = (location.protocol === "https:") ? "wss://" : "ws://";
+
+var path = location.pathname;
+if(path.endsWith("index.html"))
+{
+    path = path.substring(0, path.length - "index.html".length);
+}
+if(!path.endsWith("/")) {
+    path = path + "/";
+}
+var ws = new WebSocket(wsProtocol + location.host + path + "websocket");
 ws.binaryType = 'arraybuffer';
 
 function requestImage() {

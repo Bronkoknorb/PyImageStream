@@ -55,10 +55,38 @@ Start with
 The stream can then be watched on: http://YOUR_HOST:8888/ (where YOUR_HOST is your host name or IP address or localhost
 on the same machine).
 
+Security
+--------
+
+To enable encryption (HTTPS) and password authentication you can setup another Web server
+(like [nginx](https://nginx.org/)) as a reverse proxy before this server.
+
+This is the relevant part from a nginx configuration file that I use to proxy my PyImageStream:
+
+    location ^~ /cam1/websocket {
+        proxy_pass http://10.0.0.16:8888/websocket;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location ~ ^/cam1/(.*)$ {
+        proxy_pass http://10.0.0.16:8888/$1;
+        include /etc/nginx/proxy_params;
+    }
+
+It will make the camera available under http://YOUR_HOST/cam1/
+
+To setup authentication and HTTPS please refer to the nginx documentation.
+
+Alternatively you could also configure authentication and HTTPS for the internally used Python Tornado Web server.
+I haven't tried that yet, but the Tornado Web server documentation should help with that.
+
 Happy?
 ------
 
-If you are using this project, I'd be happy to hear! Please Star the repository (button in the top right) or drop me a mail (dev@hermann.czedik.net)!
+If you are using this project, I'd be happy to hear! Please Star the repository (button in the top right) or drop me a
+mail (dev@hermann.czedik.net)!
 
 If you have problems or questions then please open an [Issue on github](https://github.com/Bronkoknorb/PyImageStream/issues).
 
