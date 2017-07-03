@@ -47,6 +47,10 @@ PIP for installing Python packages:
 [Pygame](https://www.pygame.org/) (used for capturing images from a Webcam)
 
     sudo apt install python3-pygame
+    
+[git](https://git-scm.com/) (to checkout this repository)
+
+    sudo apt install git
 
 ### Connect your Webcam
 
