@@ -19,7 +19,7 @@ For my use case this implementation has several advantages over other existing W
 Disadvantages:
 
 * For higher resolutions it will never achieve a high framerate, because it's not using an efficient Video codec (like H.264).
-* Doesn't work well with many clients connecting simultanously, because it will capture new images and send them to each client separately (i.e. the framerate will become slower). This isn't a problem for my use case as I will be the only one connecting to my aquarium video.
+* Doesn't work well with many clients connecting simultanously, because it will capture new images and send them to each client separately (i.e. the framerate will become slower). This isn't a problem for my use case as I and my girlfriend will be the only ones connecting to our aquarium video.
 
 Prerequisites
 -------------
