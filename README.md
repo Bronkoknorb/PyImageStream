@@ -26,7 +26,7 @@ Prerequisites
 
 ### Install dependencies
 
-The commands above assume your are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be slightly different on other Linux distributions. For that please refer to the installation instructions of each of these packages. This project has not yet been tested on other operating system, like Windows, but should probably work there too.
+The commands below assume your are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be slightly different on other Linux distributions. For that please refer to the installation instructions of each of these packages. This project has not yet been tested on other operating system, like Windows, but should probably work there too.
 
 [Python 3](https://www.python.org/)
 
