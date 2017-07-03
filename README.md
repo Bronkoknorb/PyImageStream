@@ -11,7 +11,7 @@ For my use case this implementation has several advantages over other existing W
 * Works on all modern Browsers (including Mobile) that support WebSockets.
 * Easier to set up and configure and better supported by Web browsers (at the time of this writing) than other adaptive streaming methods like HLS, MPEG-DASH, WebRTC.
 * Works with the Raspberry Pi Camera Module and with almost any USB camera (supported by Linux / pygame). (In comparison to the otherwise very nice [RPi-Cam-Web-Interface](http://elinux.org/RPi-Cam-Web-Interface), which unfortunately only works with the Raspberry Pi Camera.)
-* Automatically turns off the camera if no client is connected. (To safe energy, camera lifetime and CPU usage. And then you also know when someone sees the video if you are at home and the camera LED turns on. :wink:)
+* Automatically turns off the camera if no client is connected. (To safe energy, camera lifetime and CPU usage. And then you also know that someone watches if you are at home and the camera LED suddenly turns on. :wink:)
 * Doesn't write images / video to disk (to not shorten the lifetime of the SD card) but encodes and sends them in memory.
 * Sends the data efficiently in binary format and not Base64 encoded (in comparison to the otherwise very similar [hello-websocket](https://github.com/vmlaker/hello-websocket)).
 * Fully open source. (In comparison to [UV4L](https://www.linux-projects.org/uv4l/), which seems to be closed-source. :scream:)
