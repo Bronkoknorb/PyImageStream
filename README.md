@@ -48,7 +48,7 @@ PIP for installing Python packages:
 
     sudo apt install python3-pygame
     
-[git](https://git-scm.com/) (to checkout this repository)
+[git](https://git-scm.com/) (to clone this repository)
 
     sudo apt install git
 
