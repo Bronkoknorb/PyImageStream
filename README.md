@@ -3,13 +3,15 @@ PyImageStream - Python WebSocket Image Stream
 
 Server which streams images (JPEG) from a WebCam (USB camera or Raspberry Pi Camera Module) via a WebSocket. Also includes a simple JavaScript client to show the video in a Web Browser.
 
-I've implemented this for streaming live images of my Aquarium to my smartphone (or tablet or PC) when I'm on vacation to check the health of the fish. For this I want to see high resolution images (e.g. the full 1920x1080 pixels the Raspberry Pi Camera can provide) even if the connection speed is slow, but the framerate is less important.
+I've implemented this for streaming live images of my Aquarium to my smartphone (or tablet or PC) when I'm on vacation to check the health of the fish. For this I want to see high resolution images (e.g. the full 1920x1080 pixels the Raspberry Pi Camera can provide), even if the connection speed is slow, but the framerate is less important. It is fine too see only a few images per second, if I'm on a slow network, but if it is fast I want to see a more smooth video.
 
 For my use case this implementation has several advantages over other existing solutions:
+* Supports high resolution images (video) even if the connection speed is slow by automatically adapting the framerate.
+* A pull approach ensures this adaptive framerate based on the connection speed: The client will ask the server only for a new image once it has fully loaded the previous one. That way the images will never lag behind for a longer time. (In comparison to fixed framerate/bandwith solutions like [motioneye](https://github.com/ccrisan/motioneye/wiki).)
 * Works on all modern Browsers (including Mobile) that support WebSockets.
-* A pull approach ensures an adaptive framerate based on the connection speed: The client will ask the server only for a new image once it has fully loaded the previous one. That way the images will never lag behind for a longer time. (In comparison to fixed framerate/bandwith solutions like [motioneye](https://github.com/ccrisan/motioneye/wiki).)
 * Easier to set up and configure than other adaptive streaming methods like HLS, MPEG-DASH, WebRTC.
 * Works with the Raspberry Pi Camera Module and with almost any USB camera (supported by Linux / pygame). (In comparison too the very nice [RPi-Cam-Web-Interface](http://elinux.org/RPi-Cam-Web-Interface), which unfortunately only works with the Raspberry Pi Camera.)
+* Automatically turns off the camera if no client is connected (to safe energy, camera lifetime and CPU usage).
 * Fully open source (In comparison too [UV4L](https://www.linux-projects.org/uv4l/), which seems to be closed-source - yuck!)
 
 Prerequisites
