@@ -1,32 +1,54 @@
 PyImageStream - Python WebSocket Image Stream
 =============================================
 
-Server which streams images (JPEG) from a WebCam (USB camera or Raspberry Pi Camera Module) via a WebSocket. Also includes a simple JavaScript client to show the video in a Web Browser.
+Server which streams images (JPEG) from a WebCam (USB camera or Raspberry Pi Camera Module) via a WebSocket. Also
+includes a simple JavaScript client to show the video in a Web Browser.
 
-I've implemented this for streaming live images of my Aquarium from a Raspberry Pi 3 to my smartphone (or tablet or PC) when I'm on vacation to check on my fish :tropical_fish:. For this I want to see high resolution images (e.g. the full 1920x1080 pixels the Raspberry Pi Camera can provide), even if the connection speed is slow. It is fine to see only a few images per second, if I'm on a slow network, but if it is fast I want to see a more smooth video.
+I've implemented this for streaming live images of my Aquarium from a Raspberry Pi 3 to my smartphone (or tablet or PC)
+when I'm on vacation to check on my fish :tropical_fish:. For this I want to see high resolution images (e.g. the full
+1920x1080 pixels the Raspberry Pi Camera can provide), even if the connection speed is slow. It is fine to see only a
+few images per second, if I'm on a slow network, but if it is fast I want to see a more smooth video.
 
 For my use case this implementation has several advantages over other existing Web video streaming solutions:
 * Supports high resolution images (video) even if the connection speed is slow by automatically adapting the framerate.
-* A simple pull approach ensures this adaptive framerate: The client will ask the server only for a new image once it has fully loaded the previous one. That way the images will never lag behind for a longer time or appear corrupted. (In comparison to fixed framerate/bandwith Motion JPEG (MJPEG) solutions like [motion](https://motion-project.github.io/) / [motioneye](https://github.com/ccrisan/motioneye/wiki), [MJPEG-streamer](https://sourceforge.net/projects/mjpg-streamer/) and also MPEG1 solutions like [JSMPEG](https://github.com/phoboslab/jsmpeg) / [pistreaming](https://github.com/waveform80/pistreaming).)
+* A simple pull approach ensures this adaptive framerate: The client will ask the server only for a new image once it
+  has fully loaded the previous one. That way the images will never lag behind for a longer time or appear corrupted.
+  (In comparison to fixed framerate/bandwith Motion JPEG (MJPEG) solutions like
+  [motion](https://motion-project.github.io/) / [motioneye](https://github.com/ccrisan/motioneye/wiki),
+  [MJPEG-streamer](https://sourceforge.net/projects/mjpg-streamer/) and also MPEG1 solutions like
+  [JSMPEG](https://github.com/phoboslab/jsmpeg) / [pistreaming](https://github.com/waveform80/pistreaming).)
 * Works on all modern Browsers (including Mobile) that support WebSockets.
-* Easier to set up and configure and better supported by Web browsers (at the time of this writing) than more advanced adaptive video streaming methods like HLS, MPEG-DASH, WebRTC.
-* Works with the Raspberry Pi Camera Module and with almost any USB camera (supported by Linux / pygame). (In comparison to the otherwise very nice [RPi-Cam-Web-Interface](http://elinux.org/RPi-Cam-Web-Interface), which unfortunately only works with the Raspberry Pi Camera.)
-* Automatically turns off the camera if no client is connected. (To safe energy, camera lifetime and CPU usage. And then you also know that someone watches if you are at home and the camera LED suddenly turns on. :wink:)
-* Doesn't write images / video to disk (to not shorten the lifetime of the SD card) but encodes and sends them in memory.
-* Sends the data efficiently in binary format and not Base64 encoded (in comparison to the otherwise very similar [hello-websocket](https://github.com/vmlaker/hello-websocket)).
-* Fully open source. (In comparison to [UV4L](https://www.linux-projects.org/uv4l/), which seems to be closed-source. :scream:)
+* Easier to set up and configure and better supported by Web browsers (at the time of this writing) than more advanced
+  adaptive video streaming methods like HLS, MPEG-DASH, WebRTC.
+* Works with the Raspberry Pi Camera Module and with almost any USB camera (supported by Linux / pygame). (In comparison
+  to the otherwise very nice [RPi-Cam-Web-Interface](http://elinux.org/RPi-Cam-Web-Interface), which unfortunately only
+  works with the Raspberry Pi Camera.)
+* Automatically turns off the camera if no client is connected. (To safe energy, camera lifetime and CPU usage. And then
+  you also know that someone watches if you are at home and the camera LED suddenly turns on. :wink:)
+* Doesn't write images / video to disk (to not shorten the lifetime of the SD card) but encodes and sends them in
+  memory.
+* Sends the data efficiently in binary format and not Base64 encoded (in comparison to the otherwise very similar
+  [hello-websocket](https://github.com/vmlaker/hello-websocket)).
+* Fully open source. (In comparison to [UV4L](https://www.linux-projects.org/uv4l/), which seems to be
+  closed-source. :scream:)
 
 Disadvantages:
 
-* For higher resolutions it will never achieve a high framerate, because it's not using an efficient Video codec (like H.264).
-* Doesn't work well with many clients connecting simultanously, because it will capture new images and send them to each client separately (i.e. the framerate will become slower). This isn't a problem for my use case as I and my girlfriend will be the only ones connecting to our aquarium video.
+* For higher resolutions it will never achieve a high framerate, because it's not using an efficient
+  Video codec (like H.264).
+* Doesn't work well with many clients connecting simultanously, because it will capture new images and send them to
+  each client separately (i.e. the framerate will become slower). This isn't a problem for my use case as I and my
+  girlfriend will be the only ones connecting to our aquarium video.
 
 Prerequisites
 -------------
 
 ### Install dependencies
 
-The commands below assume you are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be slightly different on other Linux distributions. For that please refer to the installation instructions of each of these packages. This project has not yet been tested on other operating system, like Windows, but should probably work there too.
+The commands below assume you are using Rasbian Jessie on a Raspberry Pi. Installation of dependencies might be
+slightly different on other Linux distributions. For that please refer to the installation instructions of each of
+these packages. This project has not yet been tested on other operating system, like Windows, but should probably work
+there too.
 
 [Python 3](https://www.python.org/)
 
@@ -56,7 +78,8 @@ PIP for installing Python packages:
 
 The Webcam has to be compatible with Video4Linux2 and should appear as /dev/video0 in the filesystem.
 Most USB Webcams support the UVC standard and should work just fine.
-The [Raspberry Pi Camera Module](https://www.raspberrypi.org/documentation/usage/camera/) can be made available as a V4L2 device by loading a kernel module:
+The [Raspberry Pi Camera Module](https://www.raspberrypi.org/documentation/usage/camera/) can be made available as a
+V4L2 device by loading a kernel module:
 
     sudo modprobe bcm2835-v4l2
     
@@ -80,14 +103,27 @@ on the same machine).
 Configuration
 -------------
 
-`main.py` includes some constants that can be changed to:
- - select the Webcam (if multiple are connected)
- - select the resolution of images (lower resolution will increase the throughput)
- - select the JPEG quality (lower quality will increase the throughput)
- - select the Web server port
- - select the delay that is used to stop the camera after all clients have disconnected
- 
-In `static/client.js` you can configure the maximum framerate that the client will try to load and display (default: 24 frames per second).
+`main.py` can be started with a number of optional arguments:
+```
+usage: main.py [-h] [--port PORT] [--camera CAMERA] [--width WIDTH]
+               [--height HEIGHT] [--quality QUALITY] [--stopdelay STOPDELAY]
+
+Start the PyImageStream server.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --port PORT           Web server port (default: 8888)
+  --camera CAMERA       Camera index, first camera is 0 (default: 0)
+  --width WIDTH         Width (default: 640)
+  --height HEIGHT       Height (default: 480)
+  --quality QUALITY     JPEG Quality 1 (worst) to 100 (best) (default: 70)
+  --stopdelay STOPDELAY
+                        Delay in seconds before the camera will be stopped
+                        after all clients have disconnected (default: 7)
+```
+
+Additionally, in the file `static/client.js` you can configure the maximum framerate that the client will try to load
+and display (default: 24 frames per second).
 
 Security
 --------
@@ -111,7 +147,8 @@ This is the relevant part from a nginx configuration file that I use to proxy my
 
 It will make the camera available under http://YOUR_HOST/cam1/
 
-To setup authentication and HTTPS please refer to the nginx documentation. If you have a domain name or are using a Dynamic DNS service, then you can get free HTTPS certificates from [letsencrypt](https://letsencrypt.org/).
+To setup authentication and HTTPS please refer to the nginx documentation. If you have a domain name or are using a
+Dynamic DNS service, then you can get free HTTPS certificates from [letsencrypt](https://letsencrypt.org/).
 
 Alternatively you could also configure authentication and HTTPS for the internally used Python Tornado Web server.
 I haven't tried that yet, but the Tornado Web server documentation should help with that.
@@ -122,7 +159,8 @@ Happy?
 If you are using this project, I'd be happy to hear! Please Star the repository (button in the top right) or drop me a
 mail (dev@hermann.czedik.net)!
 
-If you have problems or questions then please open an [Issue on github](https://github.com/Bronkoknorb/PyImageStream/issues).
+If you have problems or questions then please open an
+[Issue on github](https://github.com/Bronkoknorb/PyImageStream/issues).
 
 Feel free to fork the repository and create pull requests for improvements and new features.
 
