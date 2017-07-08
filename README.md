@@ -122,7 +122,9 @@ optional arguments:
                         after all clients have disconnected (default: 7)
 ```
 
-Additionally, in the file `static/client.js` you can configure the maximum framerate that the client will try to load
+If you have multiple cameras connected, then simply start multiple instances of this server on different ports.
+
+In the file `static/client.js` you can configure the maximum framerate that the client will try to load
 and display (default: 24 frames per second).
 
 Security
