@@ -138,7 +138,7 @@ To automatically start the server when your machine is rebooted, execute:
 
     @reboot sleep 5 && /home/pi/software/PyImageStream/start.sh
 
-(Replace the path of the script with the location where you installed it.)
+Replace the path of the script with the location where you installed it. You can also add any of the optional arguments to the line.
 
 Logrotate
 ---------
@@ -154,7 +154,7 @@ When starting the server using the `start.sh` command it will write a log file t
    copytruncate
 }
 ```
-(Replace the path of the logfile with the location where you installed it.)
+Replace the path of the logfile with the location where you installed it.
 
 Security
 --------
