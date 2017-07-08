@@ -127,6 +127,35 @@ If you have multiple cameras connected, then simply start multiple instances of 
 In the file `static/client.js` you can configure the maximum framerate that the client will try to load
 and display (default: 24 frames per second).
 
+Autostart
+---------
+
+To automatically start the server when your machine is rebooted, execute:
+
+    crontab -e
+
+... and then add the following line to the crontab:
+
+    @reboot sleep 5 && /home/pi/software/PyImageStream/start.sh
+
+(Replace the path of the script with the location where you installed it.)
+
+Logrotate
+---------
+
+When starting the server using the `start.sh` command it will write a log file to a `server.log` file. To avoid that this log file grows infinite create the following logrotate rule as `/etc/logrotate.d/PyImageStream`:
+
+```
+/home/pi/software/PyImageStream/server.log {
+   weekly
+   rotate 4
+   compress
+   missingok
+   copytruncate
+}
+```
+(Replace the path of the logfile with the location where you installed it.)
+
 Security
 --------
 
