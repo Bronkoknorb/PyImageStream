@@ -143,7 +143,7 @@ Replace the path of the script with the location where you installed it. You can
 Logrotate
 ---------
 
-When starting the server using the `start.sh` command it will write a log file to a `server.log` file. To avoid that this log file grows infinite create the following logrotate rule as `/etc/logrotate.d/PyImageStream`:
+When starting the server using the `start.sh` command it will write to a `server.log` file. To avoid that this log file grows infinite create the following logrotate rule as `/etc/logrotate.d/PyImageStream`:
 
 ```
 /home/pi/software/PyImageStream/server.log {
