@@ -62,7 +62,7 @@ PIP for installing Python packages:
 
     sudo pip3 install tornado
 
-[Python Imaging Library](https://pypi.python.org/pypi/PIL)
+[Python Imaging Library](https://pypi.python.org/pypi/PIL) (or the [Pillow](https://python-pillow.org/) fork)
 
     sudo apt install python3-pil
 
