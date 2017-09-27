@@ -67,7 +67,7 @@ class Camera:
     def get_jpeg_image_bytes(self):
         img = self._cam.get_image()
         imgstr = pygame.image.tostring(img, "RGB", False)
-        pimg = Image.fromstring("RGB", img.get_size(), imgstr)
+        pimg = Image.frombytes("RGB", img.get_size(), imgstr)
         with io.BytesIO() as bytesIO:
             pimg.save(bytesIO, "JPEG", quality=self.quality, optimize=True)
             return bytesIO.getvalue()
