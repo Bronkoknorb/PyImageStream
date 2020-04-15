@@ -56,7 +56,7 @@ there too.
     
 PIP for installing Python packages:
 
-    sudo apt-get install python3-pip
+    sudo apt install python3-pip
 
 [Tornado Web server](http://www.tornadoweb.org/)
 
